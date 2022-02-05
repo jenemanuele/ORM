@@ -7,12 +7,14 @@ class ProductTag extends Model {}
 
 ProductTag.init(
   {
+    //id
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
+    //product_id
     product_id: {
       type: DataTypes.INTEGER,
       references: {
@@ -20,6 +22,7 @@ ProductTag.init(
         key: 'id'
       }
     },
+    // tag_id
     tag_id: {
       type: DataTypes.INTEGER,
       references: {
