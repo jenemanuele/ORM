@@ -6,14 +6,14 @@ class Category extends Model {}
 
 Category.init(
   {
-    // ID 
+    // ID column for Category
     id: {
       type:DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
       autoIncrement: true
     },
-    // CATEGORY_NAME 
+    // CATEGORY_NAME column for Category
     category_name: {
       type: DataTypes.STRING,
       allowNull: false

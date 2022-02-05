@@ -6,7 +6,7 @@ class Tag extends Model {}
 
 Tag.init(
   {
-    // id
+    // id row for tag
     id: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -14,7 +14,7 @@ Tag.init(
       autoIncrement: true,
 
     },
-    // tag_name
+    // tag_name row for tag
     tag_name: {
       type: DataTypes.STRING
     }
