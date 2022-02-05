@@ -111,11 +111,11 @@ router.put('/:id', (req, res) => {
       const productTagId = productTags.map(({ tag_id }) => tag_id);
       // create filtered list of new tag_ids
       const newProductTags = req.body.tagIds
-        // .filter((tag_id) => !productTagId.includes(tag_id))
-        // .map((tag_id) => {
-        //   return {
-        //     product_id: req.params.id,
-        //     tag_id,
+        .filter((tag_id) => !productTagId.includes(tag_id))
+        .map((tag_id) => {
+          return {
+            product_id: req.params.id,
+            tag_id,
           };
         });
       // figure out which ones to remove
