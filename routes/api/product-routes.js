@@ -112,7 +112,7 @@ router.put('/:id', (req, res) => {
       // get list of current tag_ids
       const productId = productTags.map(({ tag_id }) => tag_id);
       // create filtered list of new tag_ids
-      const newProductTags = req.body.tagIds
+      const newProductTag = req.body.tagIds
         .filter((tag_id) => !productId.includes(tag_id))
         .map((tag_id) => {
           return {
@@ -121,14 +121,14 @@ router.put('/:id', (req, res) => {
           };
         });
       // figure out which ones to remove
-      const productTagsToDelete = productTags
+      const productTagToDelete = productTags
         .filter(({ tag_id }) => !req.body.tagIds.includes(tag_id))
         .map(({ id }) => id);
 
       // run both actions
       return Promise.all([
-        ProductTag.destroy({ where: { id: productTagsToDelete } }),
-        ProductTag.bulkCreate(newProductTags),
+        ProductTag.destroy({ where: { id: productTagToDelete } }),
+        ProductTag.bulkCreate(newProductTag),
       ]);
     })
     .then((updatedProductTags) => res.json(updatedProductTags))
